@@ -1,0 +1,17 @@
+2022-01-29 08:53:43 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Img could not be found. in C:\xampp\htdocs\layredvastu.com\vendor\cakephp\cakephp\src\Http\ControllerFactory.php on line 105
+Stack Trace:
+#0 C:\xampp\htdocs\layredvastu.com\vendor\cakephp\cakephp\src\Http\ControllerFactory.php(39): Cake\Http\ControllerFactory->missingController(Object(Cake\Http\ServerRequest))
+#1 C:\xampp\htdocs\layredvastu.com\vendor\cakephp\cakephp\src\Routing\Filter\ControllerFactoryFilter.php(63): Cake\Http\ControllerFactory->create(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#2 C:\xampp\htdocs\layredvastu.com\vendor\cakephp\cakephp\src\Routing\Filter\ControllerFactoryFilter.php(48): Cake\Routing\Filter\ControllerFactoryFilter->_getController(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#3 C:\xampp\htdocs\layredvastu.com\vendor\cakephp\cakephp\src\Routing\DispatcherFilter.php(143): Cake\Routing\Filter\ControllerFactoryFilter->beforeDispatch(Object(Cake\Event\Event))
+#4 C:\xampp\htdocs\layredvastu.com\vendor\cakephp\cakephp\src\Event\EventManager.php(351): Cake\Routing\DispatcherFilter->handle(Object(Cake\Event\Event), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#5 C:\xampp\htdocs\layredvastu.com\vendor\cakephp\cakephp\src\Event\EventManager.php(328): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#6 C:\xampp\htdocs\layredvastu.com\vendor\cakephp\cakephp\src\Event\EventDispatcherTrait.php(112): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#7 C:\xampp\htdocs\layredvastu.com\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(79): Cake\Http\ActionDispatcher->dispatchEvent('Dispatcher.befo...', Array)
+#8 C:\xampp\htdocs\layredvastu.com\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(66): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#9 C:\xampp\htdocs\layredvastu.com\webroot\index.php(36): Cake\Routing\Dispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#10 {main}
+
+
+Request URL: /img/listingimage/f4f7380eec_logo.svg
+Referer URL: http://localhost/layredvastu.com/admin/static_informations/edit/1

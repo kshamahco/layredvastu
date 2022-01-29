@@ -1,0 +1,357 @@
+// @import '../slick/slick-theme';
+// @import '../slick/slick';
+label {
+  margin-bottom: 0;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+
+// h1 {
+//   // text-transform: uppercase;
+// }
+h1 {
+  font-weight: 800;
+  // color: $theme_color;
+  font-size: 2rem;
+  @include mxw991 {
+    font-size: 1.6rem;
+  }
+}
+
+.h1 {
+  font-weight: 600;
+  @include mxw991 {
+    font-size: 1.5rem;
+  }
+}
+
+h2,
+.h2 {
+  font-weight: 600;
+  @include mxw991 {
+    font-size: 1.5rem;
+  }
+}
+h3,
+.h3 {
+  font-size: 1.3rem;
+  @include mxw991 {
+    font-size: 1.1rem;
+  }
+}
+
+strong {
+  font-weight: 600;
+}
+p {
+  text-align: justify;
+}
+
+.fancybox-container,
+.modal {
+  z-index: 10000000000 !important;
+}
+
+figure {
+  margin-bottom: 0;
+}
+
+.rt_btn {
+  position: fixed;
+  top: calc(50% - 90px);
+  right: -58px;
+  z-index: 1040;
+  transform: rotate(-90deg);
+  @include mxw960 {
+    display: none !important;
+  }
+}
+.error {
+  color: $red;
+}
+.success {
+  color: $green;
+}
+
+.modal-backdrop {
+  background-color: $white;
+  &.show {
+    opacity: 0.9;
+  }
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 450px;
+  }
+}
+.modal-body {
+  padding: 0;
+}
+.modal-content {
+  border: none;
+  box-shadow: 0 8px 60px 0 rgba(103, 151, 255, 0.11),
+    0 12px 90px 0 rgba(103, 151, 255, 0.11);
+}
+.mcontent {
+  padding: 1rem;
+  border-radius: 0.3rem 0.3rem 0 0;
+  background-color: rgba($theme_contrast, 1);
+  position: relative;
+  color: $white;
+  &::before {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    top: -6px;
+    left: 0;
+    content: "";
+    background-color: $primary;
+    border-radius: 0.3rem 0.3rem 0 0;
+    z-index: -1;
+  }
+  .h3 {
+    text-align: center;
+    margin-bottom: 0;
+  }
+  &__heading {
+    color: $white;
+    font-size: 1.3rem;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      padding-left: 1rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      &::before {
+        float: left;
+        margin-left: -0.9rem;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f105";
+      }
+    }
+  }
+}
+.close {
+  opacity: 1;
+}
+
+.modal-header {
+  position: absolute;
+  right: -12px;
+  top: -12px;
+  padding: 0;
+  border-bottom: none;
+  z-index: 10;
+  .close {
+    background-color: $white;
+    border-radius: 100%;
+    box-shadow: $shadowbox-sm;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    margin: 0;
+  }
+}
+.btn {
+  padding: 0.45rem 1rem;
+  font-weight: 700;
+}
+.form-control {
+  height: 2.5rem;
+  font-size: 0.8rem;
+}
+.input-group-text {
+  background-color: transparent;
+}
+
+footer {
+  background-color: rgba($footer, 0.6);
+  // padding-top: 1.8rem;
+  // color: $gray-300;
+  a {
+    color: rgba($white, 0.8);
+  }
+  .ftr_blog {
+    // border-bottom: 1px dotted rgba($gray-500, 0.5);
+    padding: 1rem 0 5rem;
+    &__heading {
+      font-size: 1.3rem;
+      color: $white;
+      position: relative;
+      margin-bottom: 0.9rem;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 10rem;
+        height: 0.07rem;
+        background-color: rgba($white, 0.7);
+        left: 0;
+        bottom: 0;
+      }
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      li {
+        width: calc(33.3% - 2rem);
+        margin-right: 2rem;
+        margin-bottom: 2rem;
+        // border-right: 1px solid rgba($white, 0.5);
+        font-size: 0.9rem;
+        display: flex;
+        // border: red solid 1px;
+        position: relative;
+        background-color: rgba($theme_color, 0.3);
+        img {
+          width: 50%;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+        a {
+          // padding: 0.1rem 0;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          padding: 1rem;
+          // border: red solid 1px;
+          height: 100%;
+        }
+        @include mxw991 {
+          width: calc(50% - 2rem);
+        }
+        @include mxw414 {
+          width: 100%;
+          margin-right: 0;
+          flex-wrap: wrap;
+          img {
+            width: 100%;
+          }
+          a {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  .copyright {
+    background-color: rgba($theme_color, 0.7);
+    font-size: 0.9rem;
+    padding: 1.5rem 0;
+    text-align: center;
+    color: $gray-500;
+    @include mxw991 {
+      padding-bottom: 5.5rem;
+    }
+  }
+}
+
+#goTop {
+  display: none;
+  position: fixed;
+  right: 1rem;
+  bottom: 5rem;
+  background-color: rgba($theme_color, 0.9);
+  text-align: center;
+  width: 2.5rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.3rem;
+  z-index: 10000;
+  cursor: pointer;
+  color: $white;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 1.4;
+}
+
+.desk_btn {
+  position: fixed;
+  right: -3.1rem;
+  top: calc(50% - 2rem);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  // display: none;
+  z-index: 50;
+  @include mxw991 {
+    display: none !important;
+  }
+}
+
+.aside_btn {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  text-align: center;
+  background-color: #fff;
+  border-top: 1px solid #dcdcdc;
+  padding: 0.9rem;
+  padding-left: 140px;
+  .moreopt {
+    text-align: center;
+    border-radius: 100%;
+    margin-right: 0.8rem;
+    line-height: 25px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid $black;
+  }
+  .btn {
+    padding: 0.4rem 0.5rem;
+  }
+  @include mnw992 {
+    display: none;
+  }
+}
+
+.display_popup {
+  box-shadow: 0px -1rem 2rem rgba(25, 43, 65, 0.275);
+  position: fixed;
+  left: 0;
+  bottom: 70px;
+  z-index: 1000000000;
+  display: none;
+  width: 100%;
+  background-color: $white;
+  padding: 0 1rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      list-style: none;
+      padding: 0;
+      border-bottom: rgba($theme_dark, 0.4) solid 1px;
+      &:last-child {
+        border-bottom: none;
+      }
+      a {
+        display: block;
+        padding: 0.5rem;
+        font-size: 1.5rem;
+        color: $black;
+        text-decoration: none;
+      }
+    }
+  }
+  span {
+    font-size: 1rem;
+    display: inline-block;
+    padding-left: 0.5rem;
+  }
+}
