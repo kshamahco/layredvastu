@@ -1,0 +1,22 @@
+$body-bg: #fff; // Background Color
+$body-color: #1f1a17; // body content color
+$primary: #b43223;
+// $secondary: #436296;
+// $success: #2bc550;
+// $info: #495dff;
+// $warning: #ef8143;
+// $danger: #ff293a;
+// $light: #dfe6ee;
+// $dark: #0f1319;
+
+$theme-colors: (
+  "primary": #b43223,
+);
+$theme_color: #1c1c1c;
+$theme_contrast: #ca7f6c;
+$theme_dark: #000;
+$theme_light: #ffe1c8;
+$footer: #000;
+
+$shadowbox: 0 1rem 3rem rgba($theme_color, 0.275);
+$shadowbox-sm: 0 0.5rem 0.5rem rgba($theme_dark, 0.275);

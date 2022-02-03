@@ -1,0 +1,48 @@
+$body-bg: #fff; // Background Color
+$body-color: #212529; // body content color
+// $theme-colors: (
+//   "primary": #ef7e22,
+// );
+
+$primary: #ef7e22;
+$secondary: #f4b21e;
+$black: #111111;
+$link-color: #00aeef;
+
+a {
+  text-decoration: none !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  background-color: white;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 100%;
+  text-align: center;
+  // color: $primary;
+  border: 1px solid rgba(black, 0.1);
+  box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px,
+    rgba(black, 0.18) 0px 2px 4px;
+  transition: transform 0.25s ease-in-out;
+  &.swiper-button-disabled {
+    opacity: 0;
+    pointer-events: auto;
+  }
+  &:hover {
+    box-shadow: transparent 0px 0px 0px 1px, transparent 0px 0px 0px 4px,
+      rgba(black, 0.12) 0px 6px 16px;
+  }
+  &::after {
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  @media (max-width: 767px) {
+    width: 1.9rem;
+    height: 1.9rem;
+    // &::after {
+    //   font-size: 0.8rem;
+    // }
+  }
+}

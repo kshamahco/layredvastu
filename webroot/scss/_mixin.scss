@@ -1,0 +1,17 @@
+@mixin minWidth($mqVal) {
+  @media (min-width: $mqVal) {
+    @content;
+  }
+}
+@mixin maxWidth($mqVal) {
+  @media (max-width: $mqVal) {
+    @content;
+  }
+}
+
+@mixin heading_border($mb: 0.8rem, $pb: 0.5rem, $fontsize: 1.5rem) {
+  border-bottom: 1px solid rgba($gray-700, 0.2);
+  padding-bottom: $pb;
+  margin-bottom: $mb;
+  font-size: $fontsize;
+}
