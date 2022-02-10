@@ -131,4 +131,24 @@ class VastusCategoriesController extends AppController{
       }
       return $this->redirect(['controller' => 'VastusCategories','action' => 'index']);
    }
+
+   function ajaxswapprioritynew(){
+      $this->autoRender = false;
+      
+      $connection = ConnectionManager::get('default');
+      
+      if ($this->request->is('ajax')) {            
+         if(isset($this->request->data["priority"]) && isset($this->request->data["VastuCatId"])){
+            $count = count($this->request->data["VastuCatId"]);
+            
+            for($i=0;$i<$count;$i++){
+               $sql = "UPDATE vastu_categories set ".$this->request->data["column"]."='".$this->request->data["priority"][$i]."' where id='".$this->request->data["VastuCatId"][$i]."'";
+               $connection->execute($sql);
+            }
+            echo "success";
+         }else{
+            echo "Something went wrong";die;
+         }
+      }      
+   }
 }

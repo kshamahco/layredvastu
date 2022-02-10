@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-  <?php echo $this->element('common-part'); ?>
-  <link rel="stylesheet" href="<?= SITE_PATH ?>css/others_style.css">
-  <title><?= $VastuCatList[0]['seo_title']; ?></title>
-  <meta name="description" content="<?= $VastuCatList[0]['seo_description']; ?>" />
-  <link rel="canonical" href="<?= SITE_PATH ?>">
+	<?php echo $this->element('common-part'); ?>
+	<link rel="stylesheet" href="<?= SITE_PATH ?>css/others_style.css">
+	<title><?= $VastuCatList[0]['seo_title']; ?></title>
+	<meta name="description" content="<?= $VastuCatList[0]['seo_description']; ?>" />
+	<link rel="canonical" href="<?= SITE_PATH ?>">
 </head>
 
 <body>
-  	<?php echo $this->element('header'); ?>
-  	<main>
+	<?php echo $this->element('header'); ?>
+	<main>
 		<section class="container-fluid position-relative">
-			<div class="inner_bg" style="background-image: url('<?= SITE_PATH.'img/bannerimage/'.$VastuCatList[0]['banner_image'] ?>');">
+			<div class="inner_bg" style="background-image: url('<?= SITE_PATH . 'img/bannerimage/' . $VastuCatList[0]['banner_image'] ?>');">
 				<div class="roundbg">
 					<svg class="fill-body" viewBox="0 0 500 150" preserveAspectRatio="none">
 						<path d="M0,150 L0,40 Q250,150 500,40 L580,150 Z"></path>
@@ -26,12 +26,12 @@
 			<div class="container-xl">
 				<div class="row">
 					<figure class="col-lg-6 offset-lg-1 order-lg-last figname">
-						<img src="<?= SITE_PATH.'img/mergedimage/'.$VastuCatList[0]['merged_image'] ?>" class="img-fluid w-100" alt="">
+						<img src="<?= SITE_PATH . 'img/mergedimage/' . $VastuCatList[0]['merged_image'] ?>" class="img-fluid w-100" alt="">
 					</figure>
 					<div class="col-lg-5">
 						<h1><?= $VastuCatList[0]['heading_1']; ?></h1>
 						<p><strong><?= $VastuCatList[0]['desc_heading']; ?></strong></p>
-						<? if($VastuCatList[0]['video_url']){ ?>
+						<? if ($VastuCatList[0]['video_url']) { ?>
 							<div class="tbtn">
 								<div class="vidbtn">
 									<a class="fancybox" data-fancybox-type="iframe" href="<?= $VastuCatList[0]['video_url'] ?>" rel="0"><span><i class="fa-brands fa-youtube"></i></span> <cite>Watch Video</cite>
@@ -39,8 +39,9 @@
 								</div>
 							</div>
 						<? } ?>
-						<p><?= $VastuCatList[0]['description']; ?></p>
-						<a href="">Read More...</a>
+						<div class="addReadMore showlesscontent">
+							<p><?= $VastuCatList[0]['description']; ?></p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -57,11 +58,11 @@
 					<? foreach ($Vastus as $singleVastus) { ?>
 						<div class="col-lg-3">
 							<figure data-aos="zoom-in-up" data-aos-delay="300">
-								<img src="<?= SITE_PATH.'img/listingimage/'.$singleVastus['listing_image'] ?>" class="img-fluid w-100" alt="<?= $singleVastus['name']; ?>">
+								<img src="<?= SITE_PATH . 'img/listingimage/' . $singleVastus['listing_image'] ?>" class="img-fluid w-100" alt="<?= $singleVastus['name']; ?>">
 								<figcaption>
 									<h5><?= $singleVastus['name']; ?></h5>
 									<p><?= $singleVastus['short_post']; ?></p>
-									<a href="<?= SITE_PATH.$category_url.'/'.$singleVastus['url'] ?>" class="stretched-link">Read More...</a>
+									<a href="<?= SITE_PATH . $category_url . '/' . $singleVastus['url'] ?>" class="stretched-link">Read More...</a>
 								</figcaption>
 							</figure>
 						</div>
@@ -91,7 +92,29 @@
 			</div>
 		</section>
 	</main>
-  	<?php echo $this->element('footer'); ?>
+	<?php echo $this->element('footer'); ?>
+	<script>
+		function AddReadMore() {
+			var carLmt = 180;
+			var readMoreTxt = " ... Read More";
+			var readLessTxt = " Read Less";
+			$(".addReadMore").each(function() {
+				if ($(this).find(".firstSec").length)
+					return;
+				var allstr = $(this).text();
+				if (allstr.length > carLmt) {
+					var firstSet = allstr.substring(0, carLmt);
+					var secdHalf = allstr.substring(carLmt, allstr.length);
+					var strtoadd = firstSet + "<span class='SecSec'>" + secdHalf + "</span><span class='readMore'>" + readMoreTxt + "</span><span class='readLess'>" + readLessTxt + "</span>";
+					$(this).html(strtoadd);
+				}
+			});
+			$(document).on("click", ".readMore,.readLess", function() {
+				$(this).closest(".addReadMore").toggleClass("showlesscontent showmorecontent");
+			});
+		}
+		AddReadMore();
+	</script>
 </body>
 
 </html>

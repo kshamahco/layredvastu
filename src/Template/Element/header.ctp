@@ -66,7 +66,8 @@
 
                   <? foreach ($vastucategory as $singlevastucategory) { ?>
                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="<?= SITE_PATH.$singlevastucategory['category_url'] ?>" id="offcND" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="<?= SITE_PATH.$singlevastucategory['category_url'] ?>" id="offcND"><?= $singlevastucategory['name'] ?></a>
+                        <? /*<a class="nav-link dropdown-toggle" href="<?= SITE_PATH.$singlevastucategory['category_url'] ?>" id="offcND" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                          <?= $singlevastucategory['name'] ?></a>
                         <ul class="dropdown-menu" aria-labelledby="offcND">
                            <? $vastusubcategory = $connection->execute("SELECT id,url,name FROM vastus where category_id='".$singlevastucategory['id']."' ORDER by id DESC");
@@ -75,7 +76,7 @@
                            <? } ?>
                            <li><hr class="dropdown-divider"></li>
                            <li><a class="dropdown-item" href="<?= SITE_PATH.$singlevastucategory['category_url'] ?>">More <?= $singlevastucategory['name'] ?></a></li>
-                        </ul>
+                        </ul>*/ ?>
                      </li>
                   <? } ?>
                </ul>

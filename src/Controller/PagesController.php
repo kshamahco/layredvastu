@@ -12,8 +12,7 @@ use Cake\Network\Exception\NotFoundException;
  *
  * @property \App\Model\Table\PagesTable $Pages
  */
-class PagesController extends AppController
-{
+class PagesController extends AppController{
 
 
 	public function index(){
@@ -22,7 +21,7 @@ class PagesController extends AppController
 
 		$pages = $connection->execute("select * from pages where url_display='index'")->fetchAll('assoc');
 		$staticdata = $connection->execute("select * from static_informations order by id DESC LIMIT 1")->fetchAll('assoc');
-		$vastucategory = $connection->execute("SELECT id,category_url,name,listing_image FROM vastu_categories ORDER by id DESC")->fetchAll('assoc');
+		$vastucategory = $connection->execute("SELECT id,category_url,name,listing_image FROM vastu_categories ORDER by priority ASC")->fetchAll('assoc');
 		$pingVastu = $connection->execute("SELECT vastus.url AS vastu_url,vastus.name AS vastuname,vastus.short_post AS vastushortpost,vastus.listing_image AS vastu_listing_image,vastu_categories.category_url AS vastucategoryurl FROM `vastus` LEFT JOIN vastu_categories ON vastu_categories.id=vastus.category_id WHERE vastus.ping_on_home='yes' order by vastus.id DESC")->fetchAll('assoc');
 
 		$this->set('pages', $pages);
@@ -37,7 +36,7 @@ class PagesController extends AppController
 		$this->layout = 'disclaimer';
 		$pages = $connection->execute("select * from pages where url_display='index'")->fetchAll('assoc');
 		$staticdata = $connection->execute("select * from static_informations order by id DESC LIMIT 1")->fetchAll('assoc');
-		$vastucategory = $connection->execute("SELECT id,category_url,name FROM vastu_categories ORDER by id DESC")->fetchAll('assoc');
+		$vastucategory = $connection->execute("SELECT id,category_url,name FROM vastu_categories ORDER by priority ASC")->fetchAll('assoc');
 		$pingVastu = $connection->execute("SELECT vastus.url AS vastu_url,vastus.name AS vastuname,vastus.short_post AS vastushortpost,vastus.listing_image AS vastu_listing_image,vastu_categories.category_url AS vastucategoryurl FROM `vastus` LEFT JOIN vastu_categories ON vastu_categories.id=vastus.category_id WHERE vastus.ping_on_home='yes' order by vastus.id DESC")->fetchAll('assoc');
 
 		$this->set('pages', $pages);
@@ -52,7 +51,7 @@ class PagesController extends AppController
 		$this->layout = 'aboutus';
 		$pages = $connection->execute("select * from pages where url_display='index'")->fetchAll('assoc');
 		$staticdata = $connection->execute("select * from static_informations order by id DESC LIMIT 1")->fetchAll('assoc');
-		$vastucategory = $connection->execute("SELECT id,category_url,name FROM vastu_categories ORDER by id DESC")->fetchAll('assoc');
+		$vastucategory = $connection->execute("SELECT id,category_url,name FROM vastu_categories ORDER by priority ASC")->fetchAll('assoc');
 		$pingVastu = $connection->execute("SELECT vastus.url AS vastu_url,vastus.name AS vastuname,vastus.short_post AS vastushortpost,vastus.listing_image AS vastu_listing_image,vastu_categories.category_url AS vastucategoryurl FROM `vastus` LEFT JOIN vastu_categories ON vastu_categories.id=vastus.category_id WHERE vastus.ping_on_home='yes' order by vastus.id DESC")->fetchAll('assoc');
 
 		$this->set('pages', $pages);
@@ -67,7 +66,7 @@ class PagesController extends AppController
 		//echo "test";die;
 		$pages = $connection->execute("select * from pages where url_display='index'")->fetchAll('assoc');
 		$staticdata = $connection->execute("select * from static_informations order by id DESC LIMIT 1")->fetchAll('assoc');
-		$vastucategory = $connection->execute("SELECT id,category_url,name FROM vastu_categories ORDER by id DESC")->fetchAll('assoc');
+		$vastucategory = $connection->execute("SELECT id,category_url,name FROM vastu_categories ORDER by priority ASC")->fetchAll('assoc');
 		$pingVastu = $connection->execute("SELECT vastus.url AS vastu_url,vastus.name AS vastuname,vastus.short_post AS vastushortpost,vastus.listing_image AS vastu_listing_image,vastu_categories.category_url AS vastucategoryurl FROM `vastus` LEFT JOIN vastu_categories ON vastu_categories.id=vastus.category_id WHERE vastus.ping_on_home='yes' order by vastus.id DESC")->fetchAll('assoc');
 
 		$this->set('pages', $pages);
@@ -82,7 +81,7 @@ class PagesController extends AppController
 		$this->layout = 'contactus';
 		$pages = $connection->execute("select * from pages where url_display='index'")->fetchAll('assoc');
 		$staticdata = $connection->execute("select * from static_informations order by id DESC LIMIT 1")->fetchAll('assoc');
-		$vastucategory = $connection->execute("SELECT id,category_url,name FROM vastu_categories ORDER by id DESC")->fetchAll('assoc');
+		$vastucategory = $connection->execute("SELECT id,category_url,name FROM vastu_categories ORDER by priority ASC")->fetchAll('assoc');
 		$pingVastu = $connection->execute("SELECT vastus.url AS vastu_url,vastus.name AS vastuname,vastus.short_post AS vastushortpost,vastus.listing_image AS vastu_listing_image,vastu_categories.category_url AS vastucategoryurl FROM `vastus` LEFT JOIN vastu_categories ON vastu_categories.id=vastus.category_id WHERE vastus.ping_on_home='yes' order by vastus.id DESC")->fetchAll('assoc');
 
 		$this->set('pages', $pages);
@@ -93,15 +92,14 @@ class PagesController extends AppController
 
 
 	public function SubmitPopupForm(){
-		//$this->layout = false;
-		//echo "fdgdfg";die;
+		$this->autoRender = false;
 		$connection = ConnectionManager::get('default');
 		$this->loadComponent('Mail');
 		$regex = "/^(\d[\s-]?)?[\(\[\s-]{0,2}?\d{3}[\)\]\s-]{0,2}?\d{3}[\s-]?\d{4}$/i";
 		$nameregex = "/^[\p{L}\p{P}\p{Zs}]+$/";
 
 		if($this->request->is('post')){
-			$this->autoRender = false;
+			
 
 			if(!preg_match($nameregex,$this->request->data['name']) || strlen(trim($this->request->data['name'])) == 0){
 	 			echo "invalid_name";die;

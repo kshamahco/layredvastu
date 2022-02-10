@@ -25,6 +25,8 @@
 					<div class="ratio ratio-21x9 ">
 						<? if($VastuData[0]['video_url']){ ?>
 							<iframe width="100%" height="" src="<?= $VastuData[0]['video_url'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<? }else{ ?>
+						    <img src="<?= SITE_PATH.'img/listingimage/'.$VastuData[0]['listing_image'] ?>" class="img-fluid w-100" alt="<?= $VastuData[0]['name']; ?>" />
 						<? } ?>
 					</div>
 				</div>
@@ -41,16 +43,39 @@
 							<h2><?= $VastuData[0]['heading_2']; ?></h2>
 						</div>
 						<?= $VastuData[0]['first_para']; ?>
-						<img src="<?= SITE_PATH.'img/listingimage/'.$VastuData[0]['listing_image'] ?>" class="img-fluid w-100" alt="<?= $VastuData[0]['name']; ?>">
+						
+						<? if($VastuData[0]['first_para_image']){ ?>
+						    <img src="<?= SITE_PATH.'img/vastuimage/'.$VastuData[0]['first_para_image'] ?>" class="img-fluid w-100" alt="<?= $VastuData[0]['name']; ?>">
+						<? } ?>
+						
 						<?= $VastuData[0]['second_para']; ?>
+						<? if($VastuData[0]['second_para_image']){ ?>
+						    <img src="<?= SITE_PATH.'img/vastuimage/'.$VastuData[0]['second_para_image'] ?>" class="img-fluid w-100" alt="<?= $VastuData[0]['name']; ?>">
+						<? } ?>
+						
 						<blockquote>
 							<?= $VastuData[0]['third_para']; ?>
 						</blockquote>
+						<? if($VastuData[0]['third_para_image']){ ?>
+						    <img src="<?= SITE_PATH.'img/vastuimage/'.$VastuData[0]['third_para_image'] ?>" class="img-fluid w-100" alt="<?= $VastuData[0]['name']; ?>">
+						<? } ?>
+						
 						<?= $VastuData[0]['fourth_para']; ?>
+						<? if($VastuData[0]['fourth_para_image']){ ?>
+						    <img src="<?= SITE_PATH.'img/vastuimage/'.$VastuData[0]['fourth_para_image'] ?>" class="img-fluid w-100" alt="<?= $VastuData[0]['name']; ?>">
+						<? } ?>
+						
 						<div class="m_content__heading">
 							<h3><?= $VastuData[0]['fifth_para']; ?></h3>
 						</div>
+						<? if($VastuData[0]['fifth_para_image']){ ?>
+						    <img src="<?= SITE_PATH.'img/vastuimage/'.$VastuData[0]['fifth_para_image'] ?>" class="img-fluid w-100" alt="<?= $VastuData[0]['name']; ?>">
+						<? } ?>
+						
 						<?= $VastuData[0]['sixth_para']; ?>
+						<? if($VastuData[0]['sixth_para_image']){ ?>
+						    <img src="<?= SITE_PATH.'img/vastuimage/'.$VastuData[0]['sixth_para_image'] ?>" class="img-fluid w-100" alt="<?= $VastuData[0]['name']; ?>">
+						<? } ?>
 					</div>
 					<div class="col-lg-4 offset-lg-1">
 						<?php echo $this->element('main-form'); ?>
