@@ -43,9 +43,12 @@
          /**************Banner Image**************/
 
          
-         echo "<tr><td>Description</td><td>".$this->Form->input('desc_heading',array('label'=>false,'class'=>'form-control'))."</td></tr>";
+         echo "<tr><td>Description Heading</td><td>".$this->Form->input('desc_heading',array('label'=>false,'class'=>'form-control'))."</td></tr>";
 
          echo "<tr><td>Description</td><td>".$this->Form->input('description',array('label'=>false,'class'=>'form-control'))."</td></tr>";
+
+         echo "<tr><td>Blog Seo Title</td><td>".$this->Form->input('blog_seo_title',array('label'=>false,'class'=>'form-control'))."</td></tr>";
+         echo "<tr><td>Blog Seo Description</td><td>".$this->Form->input('blog_seo_description',array('label'=>false,'class'=>'form-control'))."</td></tr>";
          echo '</table>';
       ?>
    </fieldset>

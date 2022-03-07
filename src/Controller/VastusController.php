@@ -15,8 +15,8 @@ class VastusController extends AppController{
    
     
    public function view(){       
-	   $connection = ConnectionManager::get('default');   
-		$vastucat = $this->request->params['vastucat'];
+      $connection = ConnectionManager::get('default');   
+      $vastucat = $this->request->params['vastucat'];
       $vastuurl = $this->request->params['vastuurl'];
 
       $VastuCatList = $connection->execute("select * from vastu_categories where category_url='".$vastucat."'")->fetchAll('assoc');
@@ -32,7 +32,7 @@ class VastusController extends AppController{
       $catId = $VastuCatList[0]['id'];
       $VastuData = $connection->execute("select * from vastus where category_id='".$catId."' AND url='".$vastuurl."'")->fetchAll('assoc');
 
-      $SimilarVastuData = $connection->execute("SELECT vastus.url AS vastu_url,vastus.name AS vastuname,vastus.short_post AS vastushortpost,vastus.listing_image AS vastu_listing_image,vastu_categories.category_url AS vastucategoryurl FROM `vastus` LEFT JOIN vastu_categories ON vastu_categories.id=vastus.category_id WHERE vastus.mark_as_similar='yes' AND vastus.url!='".$vastuurl."' AND vastus.category_id='".$catId."' order by vastus.id DESC")->fetchAll('assoc');
+      $SimilarVastuData = $connection->execute("SELECT vastus.url AS vastu_url,vastus.name AS vastuname,vastus.short_post AS vastushortpost,vastus.listing_image AS vastu_listing_image,vastu_categories.category_url AS vastucategoryurl FROM `vastus` LEFT JOIN vastu_categories ON vastu_categories.id=vastus.category_id WHERE vastus.mark_as_similar='yes' AND vastus.url!='".$vastuurl."' AND vastus.category_id='".$catId."' order by vastus.id DESC LIMIT 11")->fetchAll('assoc');
 
       if($catId>0 && $VastuData[0]['id']>0){
          $this->set('VastuData', $VastuData);
@@ -42,8 +42,10 @@ class VastusController extends AppController{
          $this->layout='my_error';
       }
 
-		//$this->layout='vastu-view';
+      //$this->layout='vastu-view';
    }
 
     
 }
+
+?>

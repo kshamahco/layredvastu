@@ -47,6 +47,8 @@ Router::scope('/', function ($routes) {
     $routes->connect('/admin', ['controller' => 'Users', 'action' => 'login']);
     $routes->connect('/:vastucat', ['controller' => 'VastusCategories', 'action' => 'index']);
     $routes->connect('/:vastucat/:vastuurl', ['controller' => 'Vastus', 'action' => 'view']);
+    $routes->connect('/blog', ['controller' => 'Blogs', 'action' => 'index']);
+    $routes->connect('/blog/:url', ['controller' => 'Blogs', 'action' => 'view']);
     $routes->connect('/disclaimer', ['controller' => 'Pages', 'action' => 'disclaimer']);
     $routes->connect('/about-us', ['controller' => 'Pages', 'action' => 'aboutus']);
     $routes->connect('/thank-you', ['controller' => 'Pages', 'action' => 'thankyou']);

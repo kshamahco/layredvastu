@@ -1,5 +1,10 @@
+.bg-light {
+  background-color: $white !important;
+}
 .fancybox-slide {
-  padding: 0 !important;
+  @include maxWidth(991px) {
+    padding: 10px !important;
+  }
 }
 
 .hmbanner {
@@ -12,6 +17,11 @@
   background-position: center bottom;
   background-size: cover;
   position: relative;
+  z-index: -2;
+  margin-top: -1.5rem;
+  @include maxWidth(991px) {
+    margin-top: 0;
+  }
 }
 
 .tbtn {
@@ -84,26 +94,30 @@
   max-width: 1200px;
 }
 .topa {
-  background-color: rgba($black, 0.1);
-  padding: 0.3rem 0 0;
-  border-radius: 0 0 0.5rem 0.5rem;
+  // background-color: rgba($black, 0.1);
+  // padding: 0.3rem 0 0;
+  // border-radius: 0 0 0.5rem 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  // width: 100%;
+  margin-top: 0.5rem;
   &__left {
+    display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
     li {
       border-right: 1px solid rgba($black, 0.3);
-      &:last-child {
-        border-right: none;
-      }
-      @include maxWidth(991px) {
-        &:first-child {
-          a {
-            padding-left: 0;
-          }
-        }
-      }
+      // &:last-child {
+      //   border-right: none;
+      // }
+      // @include maxWidth(991px) {
+      //   &:first-child {
+      //     a {
+      //       padding-left: 0;
+      //     }
+      //   }
+      // }
       a {
         padding: 0 0.7rem;
         text-decoration: none;
@@ -254,23 +268,74 @@ figure {
 //   padding: 0.25rem 0.45rem;
 // }
 .navbar {
-  // padding-top: 0.1rem;
-  // padding-bottom: 0.1rem;
+  &.bg-primary {
+    background-color: transparent !important;
+  }
+  &.navbar-dark {
+    .navbar-toggler {
+      border: none;
+      padding: 0.05rem 0;
+    }
+  }
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  margin-top: 0.5rem;
+  .navbg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: "";
+    background-color: $primary;
+    width: calc(100% - 37%);
+    height: 100%;
+    z-index: -1;
+    &::before {
+      position: absolute;
+      left: -114px;
+      top: 0;
+      width: 0;
+      height: 0;
+      content: "";
+      border-top: 57px solid transparent;
+      border-left: 57px solid transparent;
+      border-right: 57px solid $primary;
+    }
+    @include maxWidth(767px) {
+      width: 30%;
+    }
+  }
+
   font-weight: 700;
   .nav-link {
+    color: rgba($white, 0.8) !important;
     &.active {
-      color: $primary !important;
+      color: $white !important;
     }
   }
   .navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+    position: relative;
+    top: -2rem;
     img {
-      height: 44px;
+      height: 54px;
       @include maxWidth(575px) {
-        max-width: 250px;
+        // max-width: 250px;
       }
       @include maxWidth(360px) {
-        max-width: 190px;
+        // max-width: 190px;
       }
+    }
+    @include maxWidth(991px) {
+      top: 0;
+    }
+  }
+}
+
+.offcanvas {
+  @include minWidth(991px) {
+    &.bg-primary {
+      background-color: transparent !important;
     }
   }
 }

@@ -2,156 +2,311 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "mixin";
 @import "common";
-
-.inner_bg {
-  @extend .hmbanner;
-  background-color: rgba($black, 0.8);
-  height: 468px;
-  @include maxWidth(1200px) {
-    display: none;
-  }
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-
-.video_sec {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 3rem;
-  left: 0;
-  z-index: 7;
-  .ratio {
-    --bs-aspect-ratio: 56%;
-    iframe {
-      border-radius: 0.8rem;
-    }
-  }
-  @include maxWidth(1200px) {
-    position: relative;
-    top: 1rem;
-    .container-xl {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-}
-
-.m_content {
-  position: relative;
-  margin-top: 17.5rem;
-  padding-bottom: 7rem;
-  font-size: 1.1rem;
-  p {
-    line-height: 1.9rem;
-    margin-bottom: 2rem;
-  }
-  img {
-    border-radius: 15px;
-    margin-bottom: 2rem;
-  }
-  strong {
-    color: $primary;
-    font-weight: 700;
-    font-size: 1.1rem;
-  }
-  &__heading {
-    position: relative;
-    background-color: $primary;
-    padding: 0.7rem;
-    padding-left: 3.5rem;
-    border-radius: 15px;
-    display: inline-block;
-    color: $white;
-    margin-bottom: 1.3rem;
-    &::before {
-      position: absolute;
-      width: 2.5rem;
-      height: 2.5rem;
-      background: $white url("../images/experience.png") center center no-repeat;
+.hdline {
+  padding: 1rem 0;
+  .exp {
+    padding-left: 5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    &__icon {
+      margin-left: -5rem;
+      float: left;
+      background-color: $white;
       border-radius: 100%;
-      content: "";
-      left: 0.4rem;
-      top: calc(50% - 1.27rem);
-      background-size: 25px;
-      padding: 1rem;
     }
-    h2 {
-      margin-bottom: 0;
-      font-size: 1.5rem;
+    span {
+      display: block;
+      font-size: 1rem;
+      color: $primary;
     }
   }
-  blockquote {
-    background-color: rgba($secondary, 0.35);
-    border-radius: 0 35px;
-    padding: 2rem;
-    border-left: 4px solid $primary;
-    margin-bottom: 2rem;
-    p {
-      margin-bottom: 0;
-    }
-  }
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    li {
-      padding-left: 2rem;
-      padding-bottom: 0.5rem;
-      svg {
-        display: block;
+  .profile {
+    .figure {
+      padding: 0.7rem;
+      padding-left: 3rem;
+      margin-bottom: 0.3rem;
+      overflow: auto;
+      line-height: 140%;
+      color: #6c757d;
+      font-size: 0.94rem;
+      border-radius: 0.5rem;
+      img {
         float: left;
-        margin-left: -2rem;
-        color: $primary;
-        margin-top: 0.4rem;
+        font-size: 2rem;
+        color: #0051a3;
+        margin-right: 0.5rem;
+        margin-left: -2.5rem;
+      }
+    }
+    span {
+      display: block;
+      color: #0051a3;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+  }
+  .blog-category {
+    padding: 1rem 0;
+    h5 {
+      margin-bottom: 0;
+    }
+    ul {
+      width: 300px;
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+      li {
+        display: flex;
+        span {
+          font-size: 0.9rem;
+        }
+        .badge {
+          display: inline-block;
+          padding: 0.45em 0.85em;
+          font-size: 1rem;
+          font-weight: 700;
+          line-height: 1;
+          text-align: center;
+          white-space: nowrap;
+          vertical-align: baseline;
+          border-radius: 0.25rem;
+          color: $primary !important;
+          background: rgba($secondary, 0.2);
+        }
+      }
+    }
+
+    .category-val {
+      .badge {
+        font-size: 1.1rem;
+        line-height: 1.1;
+        background: rgba($secondary, 0.25);
+        color: $secondary;
+      }
+    }
+    .post-hour {
+      color: rgba($black, 0.25);
+    }
+  }
+  @include maxWidth(991px) {
+    padding: 1rem 0;
+    .blog-category {
+      padding: 0.5rem 0;
+    }
+  }
+}
+
+.pbanner {
+  height: 600px;
+  position: relative;
+  margin-bottom: 2rem;
+  .parallax-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 600px;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+  }
+  @include maxWidth(991px) {
+    height: 300px;
+    .parallax-bg {
+      height: 300px;
+    }
+  }
+}
+.blog-content {
+  &__view {
+    margin-top: 1rem;
+    &__inner {
+      img {
+        border-radius: 0.85rem;
+      }
+      p {
+        line-height: 1.9rem;
+        margin-bottom: 2rem;
+        text-align: justify;
+      }
+      blockquote {
+        background-color: rgba($secondary, 0.25);
+        border-radius: 0 35px;
+        padding: 2rem;
+        border-left: 4px solid $primary;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+        p {
+          font-size: 1.25rem;
+          font-style: italic;
+        }
+      }
+      li {
+        padding-left: 1rem;
+        padding-bottom: 0.1rem;
+        &::before {
+          margin-left: -1rem;
+          font-size: 1.5rem;
+          content: " » ";
+        }
+        // svg {
+        //   display: block;
+        //   float: left;
+        //   margin-left: -2rem;
+        //   color: #ef7e22;
+        //   margin-top: 0.4rem;
+        // }
       }
     }
   }
-  @include maxWidth(1200px) {
-    margin-top: 3rem;
-  }
 }
+.sidebar,
+.box {
+  border: 1px solid #ececec;
+  box-shadow: 0px 0px 40px rgba(#1d3a53, 0.2);
 
-.rt_form {
-  @include maxWidth(991px) {
-    margin-top: 3rem;
+  margin-bottom: 2rem;
+  margin-left: 3rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  &.sticky-top {
+    top: 3rem;
   }
-}
-
-.simi_con {
-  margin-top: 3rem;
-  h4 {
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 0.1rem solid $primary;
-  }
-  a {
-    font-size: 0.9rem;
-  }
-  p {
-    font-size: 0.9rem;
-    line-height: inherit;
-    margin-bottom: 0;
-  }
-  figure {
+  .social-media {
     display: flex;
-    position: relative;
-    border-bottom: 1px dashed rgba($black, 0.3);
-    margin-bottom: 0.8rem;
-    padding-bottom: 0.8rem;
-    &:last-child {
-      border-bottom: none;
-    }
-    h5 {
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    li {
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      border: 1px solid $primary;
+      background: rgba($primary, 0.05);
+      padding: 0.375rem 0.75rem;
       font-size: 1rem;
+      border-radius: 0.25rem;
+      a {
+        color: rgba($primary, 0.9);
+      }
     }
-    img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      vertical-align: bottom;
-      margin-bottom: 0;
+  }
+  .post {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ececec;
+
+    &:last-child {
+      border-bottom: 0;
     }
-    figcaption {
-      margin-left: 1rem;
+    &__date {
+      margin: 0 0 0.5rem rem 0;
+      width: 20%;
+      border-radius: 0.3rem;
+      background: rgba($primary, 0.25);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      padding: 0.5rem;
+      strong {
+        font-size: 2.2rem;
+        font-weight: 400;
+        line-height: 22px;
+      }
+      span {
+        background: rgba($primary, 1);
+      }
+    }
+    a {
+      color: rgba($black, 0.9);
+    }
+    h4 {
+      margin: 0.5rem;
+      font-size: 1.1rem;
+      width: 80%;
+    }
+  }
+  @include maxWidth(991px) {
+    margin-left: 0 !important;
+  }
+}
+//blog index css
+.blog_bnr {
+  height: 20rem;
+  background: $black url("../img/blog/blog-bg.png") center top no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  margin-bottom: 2rem;
+  @include maxWidth(576px) {
+    height: 9rem;
+  }
+}
+.blog_main {
+  margin: 2.5rem 0;
+  .blist {
+    box-shadow: 0px 0px 40px rgba(#1d3a53, 0.2);
+    margin-bottom: 1.5rem;
+    display: flex;
+    background-color: $white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    &:first-child {
+      margin-top: 1rem;
+    }
+    figure {
+      width: 40%;
+      img {
+        border-radius: 0.5rem;
+      }
+    }
+    &__right {
+      padding: 1rem;
+      width: 60%;
+      h2 {
+        font-size: 1.25rem;
+        line-height: 1.2;
+      }
+      aside {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        a {
+          color: $black;
+        }
+        p {
+          font-size: 0.9rem;
+        }
+      }
+    }
+    @include maxWidth(991px) {
+      display: block;
+      figure {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+      &__right {
+        width: 100%;
+        aside {
+          flex-wrap: wrap;
+        }
+      }
     }
   }
 }

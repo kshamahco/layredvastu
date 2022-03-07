@@ -39,8 +39,14 @@
 								</div>
 							</div>
 						<? } ?>
-						<div class="addReadMore showlesscontent">
-							<p><?= $VastuCatList[0]['description']; ?></p>
+						<div class="readmore_content">
+							<div class="accordion-item">
+								<?= $VastuCatList[0]['description']; ?>
+							</div>
+							<div class="accordion-header h4">
+								<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#idOne">
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -61,60 +67,18 @@
 								<img src="<?= SITE_PATH . 'img/listingimage/' . $singleVastus['listing_image'] ?>" class="img-fluid w-100" alt="<?= $singleVastus['name']; ?>">
 								<figcaption>
 									<h5><?= $singleVastus['name']; ?></h5>
-									<p><?= $singleVastus['short_post']; ?></p>
+									<p><?= substr($singleVastus['short_post'], 0, 30).'...'; ?></p>
 									<a href="<?= SITE_PATH . $category_url . '/' . $singleVastus['url'] ?>" class="stretched-link">Read More...</a>
 								</figcaption>
 							</figure>
 						</div>
 					<? } ?>
 				</div>
-				<div class="row">
-					<div class="col-lg-12">
-						<nav class="mt-lg-5">
-							<ul class="pagination justify-content-center">
-								<li class="page-item disabled">
-									<a class="page-link" href="#" aria-label="Previous">
-										<span aria-hidden="true">&laquo;</span>
-									</a>
-								</li>
-								<li class="page-item active"><a class="page-link" href="#">1</a></li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item">
-									<a class="page-link" href="#" aria-label="Next">
-										<span aria-hidden="true">&raquo;</span>
-									</a>
-								</li>
-							</ul>
-						</nav>
-					</div>
-				</div>
+				
 			</div>
 		</section>
 	</main>
 	<?php echo $this->element('footer'); ?>
-	<script>
-		function AddReadMore() {
-			var carLmt = 180;
-			var readMoreTxt = " ... Read More";
-			var readLessTxt = " Read Less";
-			$(".addReadMore").each(function() {
-				if ($(this).find(".firstSec").length)
-					return;
-				var allstr = $(this).text();
-				if (allstr.length > carLmt) {
-					var firstSet = allstr.substring(0, carLmt);
-					var secdHalf = allstr.substring(carLmt, allstr.length);
-					var strtoadd = firstSet + "<span class='SecSec'>" + secdHalf + "</span><span class='readMore'>" + readMoreTxt + "</span><span class='readLess'>" + readLessTxt + "</span>";
-					$(this).html(strtoadd);
-				}
-			});
-			$(document).on("click", ".readMore,.readLess", function() {
-				$(this).closest(".addReadMore").toggleClass("showlesscontent showmorecontent");
-			});
-		}
-		AddReadMore();
-	</script>
 </body>
 
 </html>

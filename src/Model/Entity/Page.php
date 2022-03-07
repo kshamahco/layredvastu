@@ -20,6 +20,8 @@ class Page extends Entity{
       'banner_image' => true,
       'desc_heading' => true,
       'description' => true,
+      'blog_seo_title' => true,
+      'blog_seo_description' => true,
       'created' => true,
    ];
 }

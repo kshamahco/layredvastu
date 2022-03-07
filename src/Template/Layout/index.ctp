@@ -25,14 +25,14 @@
           <div class="row">
             <div class="col-lg-7">
               <div class="hcontent__left">
-                <small>Ensure Happiness And Prosperity Through Vastu</small>
+                <small>Vastu- an attempt at enhancing your quality of living</small>
                 <h1><?= $pages[0]['heading_1']; ?></h1>
                 <div class="lead mb-3"><?= $pages[0]['desc_heading']; ?></div>
                 <div class="tbtn">
                   <button class="btn btn-warning">Get Started</button>
                   <? if ($pages[0]['video_url']) { ?>
                     <div class="vidbtn">
-                      <a href="<?= $pages[0]['video_url'] ?>">
+                      <a class="fancybox" data-fancybox-type="iframe" href="<?= $pages[0]['video_url'] ?>" rel="0">
                         <span><i class="fa-brands fa-youtube"></i></span> <cite>Watch Video</cite>
                       </a>
                     </div>
@@ -61,8 +61,7 @@
               <h2><?= $pages[0]['heading_2']; ?></h2>
               <div class="exp">
                 <div class="exp__icon"><img src="<?= SITE_PATH ?>img/experience.png" alt="Vastu Experience"></div>
-                15 Years Of Experience With
-                <span>Vastu Related Services</span>
+                <span>A Well-known Vastu Consultant and Numerologist.</span>
               </div>
               <blockquote>
                 <p><?= $pages[0]['description']; ?></p>
@@ -125,6 +124,51 @@
       </div>
     </section>
 
+
+    <?/*
+    <section class="blg_sec">
+      <div class="container-xl">
+        <div class="row">
+          <div class="col-lg-12">
+            <small class="text-lg-center d-block">Blogs</small>
+            <div class="h2 text-lg-center">Authentic Readings to Stay Up-to-Date!</div>
+          </div>
+          <div class="col-lg-6">
+            <article>
+              <h5>Vastu for Basement: All You Need To Know</h5>
+              <p>Many of us have a basement in our houses but have you ever paid any attention to Basement Vastu? M...</p>
+              <a href="blog-view.php" class="stretched-link">Read More...</a>
+            </article>
+          </div>
+          <div class="col-lg-6">
+            <article>
+              <h5>Vastu for Basement: All You Need To Know</h5>
+              <p>Many of us have a basement in our houses but have you ever paid any attention to Basement Vastu? M...</p>
+              <a href="blog-view.php" class="stretched-link">Read More...</a>
+            </article>
+          </div>
+          <div class="col-lg-6">
+            <article>
+              <h5>Vastu for Basement: All You Need To Know</h5>
+              <p>Many of us have a basement in our houses but have you ever paid any attention to Basement Vastu? M...</p>
+              <a href="blog-view.php" class="stretched-link">Read More...</a>
+            </article>
+          </div>
+          <div class="col-lg-6">
+            <article>
+              <h5>Vastu for Basement: All You Need To Know</h5>
+              <p>Many of us have a basement in our houses but have you ever paid any attention to Basement Vastu? M...</p>
+              <a href="blog-view.php" class="stretched-link">Read More...</a>
+            </article>
+          </div>
+          <div class="col-lg-12 text-lg-center text-end mt-lg-4  mt-3">
+            <a href="blog-listing.php" class="btn btn-outline-primary">More Blogs <i class="fa-light fa-arrow-right-long"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+      */ ?>
+
     <section class="h_why">
       <div class="container-xl">
         <div class="row justify-content-center">
@@ -137,13 +181,13 @@
                   <div class="swiper-slide" data-aos="fade-right" data-aos-delay="300">
                     <i class="fa-regular fa-indian-rupee-sign"></i>
                     <label>Affordable</label>
-                    <p>The main door direction is like the ‘mouth of human body.</p>
+                    <p>Get the best consultation at very attractive prices.</p>
                   </div>
 
                   <div class="swiper-slide" data-aos="fade-right" data-aos-delay="300">
                     <i class="fa-regular fa-handshake"></i>
                     <label>Happy Customers</label>
-                    <p>Use all techniques to have faster & better results.</p>
+                    <p>With the years of experience, a huge list of happy customers are here.</p>
                   </div>
 
                   <div class="swiper-slide" data-aos="fade-right" data-aos-delay="300">
@@ -151,13 +195,6 @@
                     <label>Special Attention</label>
                     <p>Being Astro-Vasstu consultant we do customized vaastu for family.</p>
                   </div>
-
-                  <div class="swiper-slide" data-aos="fade-right" data-aos-delay="300">
-                    <i class="fa-regular fa-indian-rupee-sign"></i>
-                    <label>Affordable</label>
-                    <p>The main door direction is like the ‘mouth of human body.</p>
-                  </div>
-
                 </div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>

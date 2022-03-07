@@ -12,7 +12,7 @@
    <li class="breadcrumb-item">
      <a href="#">Dashboard</a>
    </li>
-   <li class="breadcrumb-item active">Vastu Add</li>
+   <li class="breadcrumb-item active">Vastu Edit</li>
 </ol>
 <div class="actions columns large-2 medium-3">
     <h3><?= __('Actions') ?></h3>
@@ -95,6 +95,7 @@
             
             
             echo "<tr><td>Seo Title</td><td>".$this->Form->input('seo_title',array('label'=>false,'class'=>'form-control'))."</td></tr>";
+            echo "<tr><td>Seo Description</td><td>".$this->Form->input('seo_description',array('label'=>false,'class'=>'form-control'))."</td></tr>";
             /**************Listing Image**************/
             echo "<tr><td>Listing Image</td><td>".$this->Form->input('listing_image_new',['type'=>'file','label'=>false])."<br>";
             if($vastus['listing_image']){
